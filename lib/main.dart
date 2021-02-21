@@ -35,7 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Navigator.pushReplacement(
+    start(context);
+  }
+
+  start(context) async {
+    await Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => Home()));
   }
 

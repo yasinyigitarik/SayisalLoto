@@ -3,9 +3,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ApplicationRepo with ChangeNotifier {
-  getNumbers(context) {
+  var numberList;
+  getNumbers(context, apiLink) {
     http.get(
-      'https://localhost:44330/RandomNumber',
+      apiLink,
       headers: {
         'Accept': 'Application/json',
         'Content-Type': 'Application/json'
@@ -13,6 +14,9 @@ class ApplicationRepo with ChangeNotifier {
     ).then((value) {
       var incomingData = json.decode(value.body);
       print(incomingData);
+      if (incomingData['Status'] == true) {
+        numberList = incomingData['Numbers'];
+      }
       notifyListeners();
     });
   }
