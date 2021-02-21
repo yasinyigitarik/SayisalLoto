@@ -3,6 +3,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ApplicationRepo with ChangeNotifier {
+  Map deneme = {
+    "Status": true,
+    "Numbers": ["29", "23", "52", "1", "4", "53"]
+  };
   var numberList;
   getNumbers(context, apiLink) {
     http.get(
